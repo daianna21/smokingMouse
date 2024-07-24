@@ -60,7 +60,7 @@ The main motivation to create this Bioconductor package was to provide public an
 
 
 ## Overview
-This bulk RNA-sequencing project consisted of a differential expression analysis (DEA) involving 4 data types: genes, exons, transcripts and exon-exon junctions. The main goal of this study was to explore the effects of prenatal exposures to smoking and nicotine on the developing mouse brain. As secondary objectives, this work evaluated: 1) the affected genes by each exposure on the adult female brain in order to compare offspring and adult results and 2) the effects of smoking on adult blood and brain to search for overlapping biomarkers in both tissues. Finally, DEGs identified in mice were compared against previously published results in human (Semick et al. 2020 and Toikumo et al. 2023).
+This bulk RNA-sequencing project consisted of a differential expression analysis (DEA) involving 4 data types: genes, exons, transcripts and exon-exon junctions. The main goal of this study was to explore the effects of prenatal exposure to smoking and nicotine on the developing mouse brain. As secondary objectives, this work evaluated: 1) the affected genes by each exposure on the adult female brain in order to compare offspring and adult results and 2) the effects of smoking on adult blood and brain to search for overlapping biomarkers in both tissues. Finally, DEGs identified in mice were compared against previously published results in human (Semick et al. 2020 and Toikumo et al. 2023).
 
 ## Study design
 
