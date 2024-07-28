@@ -24,7 +24,7 @@ meta <- data.frame(
     "GRanges with the information of differential expression of human genes in the cigarette smoke-exposed human prenatal brain, generated in Semick et al. 2020 (DOI: https://doi.org/10.1038/s41380-018-0223-1) and obtained from https://github.com/LieberInstitute/Smoking_DLPFC_Devel.",
     "GRanges with the information of differential expression of human genes in the cigarette smoke-exposed human adult brain, generated in Semick et al. 2020 (DOI: https://doi.org/10.1038/s41380-018-0223-1) and obtained from https://github.com/LieberInstitute/Smoking_DLPFC_Devel."
   ),
-  BiocVersion = "3.18",
+  BiocVersion = "3.19",
   Genome = rep(c("GRCm38", "GRCh37"), c(4,2)),
   SourceType = "GTF",
   SourceUrl = "https://bioconductor.org/packages/smokingMouse",

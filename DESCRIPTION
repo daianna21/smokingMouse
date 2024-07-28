@@ -8,8 +8,8 @@ Authors@R:
            comment = c(ORCID = "0009-0005-8348-3195"))
     )
 Description: This is an ExperimentHub package that provides access to the data generated and analyzed in the [smoking-nicotine-mouse](https://github.com/LieberInstitute/smoking-nicotine-mouse/) LIBD project.
-             The datasets contain the expression data of mouse genes, transcripts, exons and exon-exon junctions across 208 mice samples from pup and adult brains and adult blood, exposed to nicotine, cigarette smoke, or controls.
-             They also contain relevant metadata of these samples and features, such QC metrics, if they were used after filtering steps and also if the features were differently expressed in the different experiments.
+             The datasets contain the expression data of mouse genes, transcripts, exons, and exon-exon junctions across 208 samples from pup and adult mouse brain, and adult blood, that were exposed to nicotine, cigarette smoke, or controls.
+             They also contain relevant metadata of these samples and gene expression features, such QC metrics, if they were used after filtering steps and also if the features were differently expressed in the different experiments.
 License: Artistic-2.0
 BugReports: https://support.bioconductor.org/t/smokingMouse
 Suggests: 
