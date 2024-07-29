@@ -34,14 +34,14 @@ smoking-nicotine-mouse LIBD project.
 ## Overview
 
 This bulk RNA-sequencing project consisted of a differential expression
-analysis (DEA) involving 4 data types: genes, exons, transcripts and
+analysis (DEA) involving 4 data types: genes, transcripts, exons, and
 exon-exon junctions. The main goal of this study was to explore the
 effects of prenatal exposure to smoking and nicotine on the developing
 mouse brain. As secondary objectives, this work evaluated: 1) the
-affected genes by each exposure on the adult female brain in order to
-compare offspring and adult results and 2) the effects of smoking on
+affected genes by each exposure in the adult female brain in order to
+compare offspring and adult results, and 2) the effects of smoking on
 adult blood and brain to search for overlapping biomarkers in both
-tissues. Finally, DEGs identified in mice were compared against
+tissues. Finally, DEGs identified in mouse were compared against
 previously published results in human (Semick et al., 2020 and Toikumo
 et al., 2023).
 
@@ -69,8 +69,8 @@ experiment) were obtained, as well as blood samples from the
 smoking-exposed and smoking control adults (n=24), totaling 208 samples.
 Number of donors and samples are indicated in the figure. <b>B)</b> RNA
 was extracted from such samples and bulk RNA-seq experiments were
-performed, obtaining expression counts for genes, exons, transcripts and
-exon-exon junctions.
+performed, obtaining expression counts for genes, transcripts, exons,
+and exon-exon junctions.
 
 </font>
 
@@ -86,7 +86,7 @@ The next table summarizes the analyses done at each level.
 <figcaption style="color: gray; line-height: 0.94; text-align: justify">
 
 <font size="-1.5"><b> Summary of analysis steps across gene expression
-feature levels </b>:
+feature levels</b>:
 
 <b>1. Data processing</b>: counts of genes, exons, and exon-exon
 junctions were normalized to CPM and log2-transformed; transcript
@@ -106,8 +106,8 @@ variables identified in the previous steps, the DEA was performed at the
 gene level for nicotine and smoking exposure in adult and pup brain
 samples, and for smoking exposure in adult blood samples; DEA at the
 rest of the levels was performed for both exposures in pup brain only.
-DE signals of the genes in the different conditions, ages, tissues and
-species (human results from $^1$[Semick et al.,
+DE signals of the genes in the different conditions, ages, tissues, and
+species (using human results from $^1$[Semick et al.,
 2020](https://www.nature.com/articles/s41380-018-0223-1)) were
 contrasted, as well as the DE signals of exons and transcripts vs those
 of their genes. Mean expression of DEGs and non-DEGs genes with and
@@ -127,8 +127,8 @@ represented in heat maps in order to distinguish the groups of up- and
 down-regulated genes.
 
 <b>6. Novel junction gene annotation</b>: for uncharacterized DE
-junctions with no annotated gene, their nearest, preceding and following
-genes were determined. </font>
+junctions with no annotated gene, their nearest, preceding, and
+following genes were determined. </font>
 
 <font size="0.8">Abbreviations: Jxn: junction; Tx(s): transcript(s);
 CPM: counts per million; TPM: transcripts per million; TMM: Trimmed Mean
@@ -147,21 +147,24 @@ on GitHub](https://github.com/LieberInstitute/smoking-nicotine-mouse/).
 ## smoking Mouse datasets
 
 The mouse datasets contain the following data in a single `R`
-`RangedSummarizedExperiment`\* object for each feature (genes, exons,
-transcripts and exon-exon junctions):
+`RangedSummarizedExperiment`\* object for each feature (genes,
+transcripts, exons, and exon-exon junctions):
 
-- **Raw data**: original read counts of the features, also including the
-  original metadata of features and samples.
+- **Raw data**: raw read counts (for genes, exons, and junctions) or TPM
+  (for transcripts), also including the original metadata of the
+  expression features and samples.
 - **Processed data**: normalized and log-scaled counts of the same
-  features. In addition to the feature and sample information, the
-  datasets contain information of which ones were used in downstream
-  analyses (the ones that passed filtering steps) and which features
-  were DE in the different experiments.
+  features (log(CPM+0.5) for genes, exons, and junctions, or
+  log(TPM+0.5) for transcripts). In addition to the feature and sample
+  information, the datasets contain information of which ones were used
+  in downstream analyses (the ones that passed filtering steps), and
+  which features were differentially expressed in the different
+  experiments.
 
-Moreover, you can find human data generated in Semick et al. (2018) in
+Moreover, you can find human data generated in Semick et al., (2018) in
 Mol Psychiatry (DOI: <https://doi.org/10.1038/s41380-018-0223-1>) that
-contain the results of a DEA in adult and prenatal human brain samples
-exposed to cigarette smoke.
+contain the results of a DEA for cigarette smoke exposure in adult and
+prenatal human brain.
 
 \*For more details, check the documentation for
 [`RangedSummarizedExperiment`](https://www.bioconductor.org/packages/devel/bioc/vignettes/SummarizedExperiment/inst/doc/SummarizedExperiment.html)
@@ -171,20 +174,20 @@ objects.
 
 - *‘rse_gene_mouse_RNAseq_nic-smo.Rdata’*: (`rse_gene` object) the gene
   RSE object contains the raw and log-normalized expression data of
-  55,401 mouse genes across the 208 samples from brains and blood of
-  healthy and nicotine/smoking-exposed pup and adult mice.
+  55,401 mouse genes across the 208 samples from brain and blood of
+  control and nicotine/smoking-exposed pup and adult mice.
 - *‘rse_tx_mouse_RNAseq_nic-smo.Rdata’*: (`rse_tx` object) the tx RSE
   object contains the raw and log-scaled expression data of 142,604
-  mouse transcripts across the 208 samples from brains and blood of
-  healthy and nicotine/smoking-exposed pup and adult mice.
+  mouse transcripts across the 208 samples from brain and blood of
+  control and nicotine/smoking-exposed pup and adult mice.
 - *‘rse_exon_mouse_RNAseq_nic-smo.Rdata’*: (`rse_exon` object) the exon
   RSE object contains the raw and log-normalized expression data of
-  447,670 mouse exons across the 208 samples from brains and blood of
-  healthy and nicotine/smoking-exposed pup and adult mice.
+  447,670 mouse exons across the 208 samples from brain and blood of
+  control and nicotine/smoking-exposed pup and adult mice.
 - *‘rse_jx_mouse_RNAseq_nic-smo.Rdata’*: (`rse_jx` object) the jx RSE
   object contains the raw and log-normalized expression data of
-  1,436,068 mouse exon-exon junctions across the 208 samples from brains
-  and blood of healthy and nicotine/smoking-exposed pup and adult mice.
+  1,436,068 mouse exon-exon junctions across the 208 samples from brain
+  and blood of control and nicotine/smoking-exposed pup and adult mice.
 
 All the above datasets contain the sample and feature metadata and
 additional data of the results obtained in the filtering steps and the
