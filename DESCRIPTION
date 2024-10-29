@@ -1,6 +1,6 @@
 Package: smokingMouse
 Title: Provides access to smokingMouse project data 
-Version: 1.4.0
+Version: 1.5.0
 Date: 2023-07-21
 Authors@R: 
     c(
