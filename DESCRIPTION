@@ -1,6 +1,11 @@
 Package: smokingMouse
+<<<<<<< HEAD
 Title: Get access to the smoking-nicotine-mouse LIBD project data
 Version: 0.99.91
+=======
+Title: Provides access to smokingMouse project data 
+Version: 1.5.0
+>>>>>>> upstream/devel
 Date: 2023-07-21
 Authors@R: 
     c(
