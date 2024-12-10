@@ -16,5 +16,25 @@ c(
         url = "http://www.bioconductor.org/packages/smokingMouse",
         note = pkgVer('smokingMouse'),
         doi = '10.18129/B9.bioc.smokingMouse'
+    ),
+    bibentry(bibtype="article",
+        title = "Molecular impact of nicotine and smoking exposure on the developing and adult mouse brain",
+        author = personList(
+            as.person("Daianna Gonzalez-Padilla"),
+            as.person("Nicholas J. Eagles"),
+            as.person("Marisol Cano"),
+            as.person("Geo Pertea"),
+            as.person("Andrew E. Jaffe"),
+            as.person("Kristen R. Maynard"),
+            as.person("Dana B. Hancock"),
+            as.person("James T. Handa"),
+            as.person("Keri Martinowich"),
+            as.person("Kristen R. Maynard"),
+            as.person("Leonardo Collado-Torres")
+        ),
+        year = "2024",
+        journal = "bioRxiv",
+        doi = "10.1101/2024.11.05.622149",
+        url = "https://doi.org/10.1101/2024.11.05.622149"
     )
 )
