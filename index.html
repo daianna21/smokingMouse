@@ -158,6 +158,13 @@
 <code class="sourceCode R"><span><span class="co">## Connect to ExperimentHub</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">ExperimentHub</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: BiocGenerics</span></span>
+<span><span class="co">#&gt; Loading required package: generics</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'generics'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     as.difftime, as.factor, as.ordered, intersect, is.element, setdiff,</span></span>
+<span><span class="co">#&gt;     setequal, union</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Attaching package: 'BiocGenerics'</span></span>
 <span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
@@ -167,16 +174,16 @@
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;     anyDuplicated, aperm, append, as.data.frame, basename, cbind,</span></span>
 <span><span class="co">#&gt;     colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,</span></span>
-<span><span class="co">#&gt;     get, grep, grepl, intersect, is.unsorted, lapply, Map, mapply,</span></span>
-<span><span class="co">#&gt;     match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,</span></span>
-<span><span class="co">#&gt;     Position, rank, rbind, Reduce, rownames, sapply, setdiff, table,</span></span>
-<span><span class="co">#&gt;     tapply, union, unique, unsplit, which.max, which.min</span></span>
+<span><span class="co">#&gt;     get, grep, grepl, is.unsorted, lapply, Map, mapply, match, mget,</span></span>
+<span><span class="co">#&gt;     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,</span></span>
+<span><span class="co">#&gt;     rbind, Reduce, rownames, sapply, saveRDS, table, tapply, unique,</span></span>
+<span><span class="co">#&gt;     unsplit, which.max, which.min</span></span>
 <span><span class="co">#&gt; Loading required package: AnnotationHub</span></span>
 <span><span class="co">#&gt; Loading required package: BiocFileCache</span></span>
-<span><span class="co">#&gt; Loading required package: dbplyr</span></span></code></pre></div>
+<span><span class="co">#&gt; Loading required package: dbplyr</span></span>
+<span><span class="va">eh</span> <span class="op">&lt;-</span> <span class="fu">ExperimentHub</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ExperimentHub/man/ExperimentHub-class.html" class="external-link">ExperimentHub</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; snapshotDate(): 2024-11-13</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">eh</span> <span class="op">&lt;-</span> <span class="fu">ExperimentHub</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ExperimentHub/man/ExperimentHub-class.html" class="external-link">ExperimentHub</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span> </span>
 <span><span class="co">## Load the datasets of the package</span></span>
 <span><span class="va">myfiles</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/AnnotationHub/man/AnnotationHub-class.html" class="external-link">query</a></span><span class="op">(</span><span class="va">eh</span>, <span class="st">"smokingMouse"</span><span class="op">)</span></span>
@@ -186,9 +193,7 @@
 <span><span class="co">########################</span></span>
 <span><span class="co">## Download the mouse gene data</span></span>
 <span><span class="va">rse_gene</span> <span class="op">&lt;-</span> <span class="va">myfiles</span><span class="op">[[</span><span class="st">'EH8313'</span><span class="op">]</span><span class="op">]</span> </span>
-<span><span class="co">#&gt; Warning: package 'GenomicRanges' was built under R version 4.4.1</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">## This is a RangedSummarizedExperiment object</span></span>
+<span><span class="co">## This is a RangedSummarizedExperiment object</span></span>
 <span><span class="va">rse_gene</span></span>
 <span><span class="co">#&gt; class: RangedSummarizedExperiment </span></span>
 <span><span class="co">#&gt; dim: 55401 208 </span></span>
@@ -201,9 +206,8 @@
 <span><span class="co">#&gt; colnames: NULL</span></span>
 <span><span class="co">#&gt; colData names(71): SAMPLE_ID FQCbasicStats ...</span></span>
 <span><span class="co">#&gt;   retained_after_QC_sample_filtering</span></span>
-<span><span class="co">#&gt;   retained_after_manual_sample_filtering</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<span><span class="co">#&gt;   retained_after_manual_sample_filtering</span></span>
+<span></span>
 <span><span class="co">## Check sample info </span></span>
 <span><span class="fu">colData</span><span class="op">(</span><span class="va">rse_gene</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
 <span><span class="co">#&gt; DataFrame with 5 rows and 5 columns</span></span>
@@ -213,9 +217,8 @@
 <span><span class="co">#&gt; 2 Sample_4042          PASS        PASS        PASS        PASS</span></span>
 <span><span class="co">#&gt; 3 Sample_4043          PASS        PASS        PASS        PASS</span></span>
 <span><span class="co">#&gt; 4 Sample_4044          PASS        PASS        PASS        PASS</span></span>
-<span><span class="co">#&gt; 5 Sample_4045          PASS        PASS        PASS        PASS</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">## Check gene info</span></span>
+<span><span class="co">#&gt; 5 Sample_4045          PASS        PASS        PASS        PASS</span></span>
+<span><span class="co">## Check gene info</span></span>
 <span><span class="fu">rowData</span><span class="op">(</span><span class="va">rse_gene</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span></span>
 <span><span class="co">#&gt; DataFrame with 5 rows and 5 columns</span></span>
 <span><span class="co">#&gt;                         Length            gencodeID          ensemblID</span></span>
@@ -231,9 +234,8 @@
 <span><span class="co">#&gt; ENSMUSG00000064842.1                snRNA          NA</span></span>
 <span><span class="co">#&gt; ENSMUSG00000051951.5       protein_coding      497097</span></span>
 <span><span class="co">#&gt; ENSMUSG00000102851.1 processed_pseudogene   100418032</span></span>
-<span><span class="co">#&gt; ENSMUSG00000103377.1                  TEC          NA</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">## Access the original counts</span></span>
+<span><span class="co">#&gt; ENSMUSG00000103377.1                  TEC          NA</span></span>
+<span><span class="co">## Access the original counts</span></span>
 <span><span class="va">original_counts</span> <span class="op">&lt;-</span> <span class="fu">assays</span><span class="op">(</span><span class="va">rse_gene</span><span class="op">)</span><span class="op">$</span><span class="va">counts</span></span>
 <span><span class="co">## Access the log-normalized counts</span></span>
 <span><span class="va">logcounts</span> <span class="op">&lt;-</span> <span class="fu">assays</span><span class="op">(</span><span class="va">rse_gene</span><span class="op">)</span><span class="op">$</span><span class="va">logcounts</span></span>
@@ -269,16 +271,15 @@
 <span><span class="co">#&gt;   ENSG00000189108   2.83949</span></span>
 <span><span class="co">#&gt;   ENSG00000186732   3.19865</span></span>
 <span><span class="co">#&gt;   -------</span></span>
-<span><span class="co">#&gt;   seqinfo: 25 sequences from an unspecified genome; no seqlengths</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<span><span class="co">#&gt;   seqinfo: 25 sequences from an unspecified genome; no seqlengths</span></span>
+<span></span>
 <span><span class="co">## Access data of human genes as normally do with data frames</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
 </h2>
 <p>Below is the citation output from using <code>citation('smokingMouse')</code> in R. Please run this yourself to check for any updates on how to cite <strong>smokingMouse</strong>.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">'smokingMouse'</span><span class="op">)</span>, bibtex <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; To cite package 'smokingMouse' in publications use:</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -286,7 +287,7 @@
 <span><span class="co">#&gt;   smokingMouse project data_. doi:10.18129/B9.bioc.smokingMouse</span></span>
 <span><span class="co">#&gt;   &lt;https://doi.org/10.18129/B9.bioc.smokingMouse&gt;,</span></span>
 <span><span class="co">#&gt;   https://github.com/LieberInstitute/smokingMouse/smokingMouse - R</span></span>
-<span><span class="co">#&gt;   package version 1.3.0,</span></span>
+<span><span class="co">#&gt;   package version 1.5.1,</span></span>
 <span><span class="co">#&gt;   &lt;http://www.bioconductor.org/packages/smokingMouse&gt;.</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></span>
@@ -296,11 +297,29 @@
 <span><span class="co">#&gt;     author = {Daianna Gonzalez-Padilla and Leonardo Collado-Torres},</span></span>
 <span><span class="co">#&gt;     year = {2024},</span></span>
 <span><span class="co">#&gt;     url = {http://www.bioconductor.org/packages/smokingMouse},</span></span>
-<span><span class="co">#&gt;     note = {https://github.com/LieberInstitute/smokingMouse/smokingMouse - R package version 1.3.0},</span></span>
+<span><span class="co">#&gt;     note = {https://github.com/LieberInstitute/smokingMouse/smokingMouse - R package version 1.5.1},</span></span>
 <span><span class="co">#&gt;     doi = {10.18129/B9.bioc.smokingMouse},</span></span>
-<span><span class="co">#&gt;   }</span></span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   }</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   Gonzalez-Padilla D, Eagles NJ, Cano M, Pertea G, Jaffe AE, Maynard</span></span>
+<span><span class="co">#&gt;   KR, Hancock DB, Handa JT, Martinowich K, Maynard KR, Collado-Torres L</span></span>
+<span><span class="co">#&gt;   (2024). "Molecular impact of nicotine and smoking exposure on the</span></span>
+<span><span class="co">#&gt;   developing and adult mouse brain." _bioRxiv_.</span></span>
+<span><span class="co">#&gt;   doi:10.1101/2024.11.05.622149</span></span>
+<span><span class="co">#&gt;   &lt;https://doi.org/10.1101/2024.11.05.622149&gt;,</span></span>
+<span><span class="co">#&gt;   &lt;https://doi.org/10.1101/2024.11.05.622149&gt;.</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;   @Article{,</span></span>
+<span><span class="co">#&gt;     title = {Molecular impact of nicotine and smoking exposure on the developing and adult mouse brain},</span></span>
+<span><span class="co">#&gt;     author = {Daianna Gonzalez-Padilla and Nicholas J. Eagles and Marisol Cano and Geo Pertea and Andrew E. Jaffe and Kristen R. Maynard and Dana B. Hancock and James T. Handa and Keri Martinowich and Kristen R. Maynard and Leonardo Collado-Torres},</span></span>
+<span><span class="co">#&gt;     year = {2024},</span></span>
+<span><span class="co">#&gt;     journal = {bioRxiv},</span></span>
+<span><span class="co">#&gt;     doi = {10.1101/2024.11.05.622149},</span></span>
+<span><span class="co">#&gt;     url = {https://doi.org/10.1101/2024.11.05.622149},</span></span>
+<span><span class="co">#&gt;   }</span></span>
+<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; To cite the original smoking-nicotine mouse work please use: </span></span>
 <span><span class="co">#&gt; </span></span>
@@ -324,14 +343,14 @@
 <h2 id="development-tools">Development tools<a class="anchor" aria-label="anchor" href="#development-tools"></a>
 </h2>
 <ul>
-<li>Continuous code testing is possible thanks to <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/" class="external-link">GitHub actions</a> through <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em>, <em><a href="https://CRAN.R-project.org/package=remotes" class="external-link">remotes</a></em>, and <em><a href="https://CRAN.R-project.org/package=rcmdcheck" class="external-link">rcmdcheck</a></em> customized to use <a href="https://www.bioconductor.org/help/docker/" class="external-link">Bioconductor’s docker containers</a> and <em><a href="https://bioconductor.org/packages/3.20/BiocCheck" class="external-link">BiocCheck</a></em>.</li>
+<li>Continuous code testing is possible thanks to <a href="https://www.tidyverse.org/blog/2020/04/usethis-1-6-0/" class="external-link">GitHub actions</a> through <em><a href="https://CRAN.R-project.org/package=usethis" class="external-link">usethis</a></em>, <em><a href="https://CRAN.R-project.org/package=remotes" class="external-link">remotes</a></em>, and <em><a href="https://CRAN.R-project.org/package=rcmdcheck" class="external-link">rcmdcheck</a></em> customized to use <a href="https://www.bioconductor.org/help/docker/" class="external-link">Bioconductor’s docker containers</a> and <em><a href="https://bioconductor.org/packages/3.21/BiocCheck" class="external-link">BiocCheck</a></em>.</li>
 <li>Code coverage assessment is possible thanks to <a href="https://codecov.io/gh" class="external-link">codecov</a> and <em><a href="https://CRAN.R-project.org/package=covr" class="external-link">covr</a></em>.</li>
 <li>The <a href="http://LieberInstitute.github.io/smokingMouse" class="external-link">documentation website</a> is automatically updated thanks to <em><a href="https://CRAN.R-project.org/package=pkgdown" class="external-link">pkgdown</a></em>.</li>
 <li>The code is styled automatically thanks to <em><a href="https://CRAN.R-project.org/package=styler" class="external-link">styler</a></em>.</li>
 <li>The documentation is formatted thanks to <em><a href="https://CRAN.R-project.org/package=devtools" class="external-link">devtools</a></em> and <em><a href="https://CRAN.R-project.org/package=roxygen2" class="external-link">roxygen2</a></em>.</li>
 </ul>
 <p>For more details, check the <code>dev</code> directory.</p>
-<p>This package was developed using <em><a href="https://bioconductor.org/packages/3.20/biocthis" class="external-link">biocthis</a></em>.</p>
+<p>This package was developed using <em><a href="https://bioconductor.org/packages/3.21/biocthis" class="external-link">biocthis</a></em>.</p>
 </div>
 </div>
   </div>
@@ -342,7 +361,7 @@
 <ul class="list-unstyled">
 <li><a href="https://www.bioconductor.org/packages/smokingMouse" class="external-link">View on Bioconductor</a></li>
 <li><a href="https://github.com/LieberInstitute/smokingMouse/" class="external-link">Browse source code</a></li>
-<li><a href="https://support.bioconductor.org/t/smokingMouse" class="external-link">Report a bug</a></li>
+<li><a href="https://support.bioconductor.org/tag/smokingMouse" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
