@@ -11,12 +11,11 @@ Description: This is an ExperimentHub package that provides access to the data g
              The datasets contain the expression data of mouse genes, transcripts, exons, and exon-exon junctions across 208 samples from pup and adult mouse brain, and adult blood, that were exposed to nicotine, cigarette smoke, or controls.
              They also contain relevant metadata of these samples and gene expression features, such QC metrics, if they were used after filtering steps and also if the features were differently expressed in the different experiments.
 License: Artistic-2.0
-BugReports: https://support.bioconductor.org/t/smokingMouse
+BugReports: https://support.bioconductor.org/tag/smokingMouse
 Suggests: 
-    ExperimentHub, 
     AnnotationHubData,
     BiocStyle,
-    covr,
+    ExperimentHub, 
     ExperimentHubData,
     knitr,
     RefManageR,

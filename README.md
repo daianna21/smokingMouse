@@ -234,6 +234,13 @@ The datasets are retrieved from [Bioconductor](http://bioconductor.org/)
 ## Connect to ExperimentHub
 library(ExperimentHub)
 #> Loading required package: BiocGenerics
+#> Loading required package: generics
+#> 
+#> Attaching package: 'generics'
+#> The following objects are masked from 'package:base':
+#> 
+#>     as.difftime, as.factor, as.ordered, intersect, is.element, setdiff,
+#>     setequal, union
 #> 
 #> Attaching package: 'BiocGenerics'
 #> The following objects are masked from 'package:stats':
@@ -243,17 +250,15 @@ library(ExperimentHub)
 #> 
 #>     anyDuplicated, aperm, append, as.data.frame, basename, cbind,
 #>     colnames, dirname, do.call, duplicated, eval, evalq, Filter, Find,
-#>     get, grep, grepl, intersect, is.unsorted, lapply, Map, mapply,
-#>     match, mget, order, paste, pmax, pmax.int, pmin, pmin.int,
-#>     Position, rank, rbind, Reduce, rownames, sapply, setdiff, table,
-#>     tapply, union, unique, unsplit, which.max, which.min
+#>     get, grep, grepl, is.unsorted, lapply, Map, mapply, match, mget,
+#>     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+#>     rbind, Reduce, rownames, sapply, saveRDS, table, tapply, unique,
+#>     unsplit, which.max, which.min
 #> Loading required package: AnnotationHub
 #> Loading required package: BiocFileCache
 #> Loading required package: dbplyr
-```
-
-``` r
 eh <- ExperimentHub::ExperimentHub()
+#> snapshotDate(): 2024-11-13
 ```
 
 ``` r
@@ -266,10 +271,6 @@ myfiles <- query(eh, "smokingMouse")
 ########################
 ## Download the mouse gene data
 rse_gene <- myfiles[['EH8313']] 
-#> Warning: package 'GenomicRanges' was built under R version 4.4.1
-```
-
-``` r
 ## This is a RangedSummarizedExperiment object
 rse_gene
 #> class: RangedSummarizedExperiment 
@@ -284,9 +285,6 @@ rse_gene
 #> colData names(71): SAMPLE_ID FQCbasicStats ...
 #>   retained_after_QC_sample_filtering
 #>   retained_after_manual_sample_filtering
-```
-
-``` r
 
 ## Check sample info 
 colData(rse_gene)[1:5, 1:5]
@@ -298,9 +296,6 @@ colData(rse_gene)[1:5, 1:5]
 #> 3 Sample_4043          PASS        PASS        PASS        PASS
 #> 4 Sample_4044          PASS        PASS        PASS        PASS
 #> 5 Sample_4045          PASS        PASS        PASS        PASS
-```
-
-``` r
 ## Check gene info
 rowData(rse_gene)[1:5, 1:5]
 #> DataFrame with 5 rows and 5 columns
@@ -318,9 +313,6 @@ rowData(rse_gene)[1:5, 1:5]
 #> ENSMUSG00000051951.5       protein_coding      497097
 #> ENSMUSG00000102851.1 processed_pseudogene   100418032
 #> ENSMUSG00000103377.1                  TEC          NA
-```
-
-``` r
 ## Access the original counts
 original_counts <- assays(rse_gene)$counts
 ## Access the log-normalized counts
@@ -358,9 +350,6 @@ de_genes_prenatal_human_brain_smoking[1:5, ]
 #>   ENSG00000186732   3.19865
 #>   -------
 #>   seqinfo: 25 sequences from an unspecified genome; no seqlengths
-```
-
-``` r
 
 ## Access data of human genes as normally do with data frames
 ```
@@ -379,7 +368,7 @@ print(citation('smokingMouse'), bibtex = TRUE)
 #>   smokingMouse project data_. doi:10.18129/B9.bioc.smokingMouse
 #>   <https://doi.org/10.18129/B9.bioc.smokingMouse>,
 #>   https://github.com/LieberInstitute/smokingMouse/smokingMouse - R
-#>   package version 1.3.0,
+#>   package version 1.5.1,
 #>   <http://www.bioconductor.org/packages/smokingMouse>.
 #> 
 #> A BibTeX entry for LaTeX users is
@@ -389,12 +378,28 @@ print(citation('smokingMouse'), bibtex = TRUE)
 #>     author = {Daianna Gonzalez-Padilla and Leonardo Collado-Torres},
 #>     year = {2024},
 #>     url = {http://www.bioconductor.org/packages/smokingMouse},
-#>     note = {https://github.com/LieberInstitute/smokingMouse/smokingMouse - R package version 1.3.0},
+#>     note = {https://github.com/LieberInstitute/smokingMouse/smokingMouse - R package version 1.5.1},
 #>     doi = {10.18129/B9.bioc.smokingMouse},
 #>   }
-```
-
-``` r
+#> 
+#>   Gonzalez-Padilla D, Eagles NJ, Cano M, Pertea G, Jaffe AE, Maynard
+#>   KR, Hancock DB, Handa JT, Martinowich K, Maynard KR, Collado-Torres L
+#>   (2024). "Molecular impact of nicotine and smoking exposure on the
+#>   developing and adult mouse brain." _bioRxiv_.
+#>   doi:10.1101/2024.11.05.622149
+#>   <https://doi.org/10.1101/2024.11.05.622149>,
+#>   <https://doi.org/10.1101/2024.11.05.622149>.
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Article{,
+#>     title = {Molecular impact of nicotine and smoking exposure on the developing and adult mouse brain},
+#>     author = {Daianna Gonzalez-Padilla and Nicholas J. Eagles and Marisol Cano and Geo Pertea and Andrew E. Jaffe and Kristen R. Maynard and Dana B. Hancock and James T. Handa and Keri Martinowich and Kristen R. Maynard and Leonardo Collado-Torres},
+#>     year = {2024},
+#>     journal = {bioRxiv},
+#>     doi = {10.1101/2024.11.05.622149},
+#>     url = {https://doi.org/10.1101/2024.11.05.622149},
+#>   }
 #> 
 #> 
 #> To cite the original smoking-nicotine mouse work please use: 
@@ -432,7 +437,7 @@ contributing to this project, you agree to abide by its terms.
   *[rcmdcheck](https://CRAN.R-project.org/package=rcmdcheck)* customized
   to use [Bioconductor’s docker
   containers](https://www.bioconductor.org/help/docker/) and
-  *[BiocCheck](https://bioconductor.org/packages/3.20/BiocCheck)*.
+  *[BiocCheck](https://bioconductor.org/packages/3.21/BiocCheck)*.
 - Code coverage assessment is possible thanks to
   [codecov](https://codecov.io/gh) and
   *[covr](https://CRAN.R-project.org/package=covr)*.
@@ -449,4 +454,4 @@ contributing to this project, you agree to abide by its terms.
 For more details, check the `dev` directory.
 
 This package was developed using
-*[biocthis](https://bioconductor.org/packages/3.20/biocthis)*.
+*[biocthis](https://bioconductor.org/packages/3.21/biocthis)*.
